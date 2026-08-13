@@ -164,13 +164,7 @@
                     onStateChange: function(event) {
                         if (event.data === YT.PlayerState.PLAYING) {
                             event.target.mute();
-
-                            // YouTube API'nin izin verdiği en yüksek hız
-                            const speeds = event.target.getAvailablePlaybackRates();
-
-                            if (speeds.includes(2)) {
-                                event.target.setPlaybackRate(2);
-                            }
+                            event.target.setPlaybackRate(2);
                         }
                     }
                 }
