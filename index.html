@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MILANPLAYSVR</title>
+    <title>DinoTopia</title>
 
     <style>
         * {
@@ -12,29 +12,54 @@
         }
 
         html {
-            min-height: 110%;
+            min-height: 120%;
         }
 
         body {
             margin: 0;
-            min-height: 110vh;
-            background: #0b2418;
+            min-height: 120vh;
+            background: #000;
             color: white;
             font-family: Arial, sans-serif;
             overflow-y: auto;
         }
 
-        .container {
-            min-height: 115vh;
-            padding-top: 70px;
-            text-align: center;
+        .hero {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
 
-        h1 {
-            margin: 0;
-            font-size: 48px;
-            font-weight: 900;
-            letter-spacing: 2px;
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .bottom {
+            height: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back-button {
+            padding: 14px 35px;
+            border: none;
+            border-radius: 10px;
+            background: #315c43;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: #407554;
         }
 
         /* Code Machine */
@@ -83,8 +108,14 @@
 
 <body>
 
-    <div class="container">
-        <h1>MILANPLAYSVR</h1>
+    <div class="hero">
+        <img src="dinotopia.png" alt="DinoTopia">
+    </div>
+
+    <div class="bottom">
+        <button class="back-button" onclick="window.location.href='index.html'">
+            BACK
+        </button>
     </div>
 
     <div class="code-machine">
@@ -100,10 +131,10 @@
 
     <script>
         function checkCode() {
-            const code = document.getElementById("codeInput").value.trim();
+            const code = document.getElementById("codeInput").value.trim().toUpperCase();
 
-            if (code.toUpperCase() === "DINOTOPIA") {
-                window.location.href = "dinotopia.html";
+            if (code === "ALPZ") {
+                window.location.href = "alpz.html";
             }
         }
     </script>
