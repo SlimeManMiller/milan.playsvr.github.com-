@@ -90,12 +90,23 @@
     <div class="code-machine">
         <input
             type="text"
+            id="codeInput"
             class="code-input"
-            placeholder="code"
+            placeholder="Code Machine"
         >
 
-        <button class="check-button">✓</button>
+        <button class="check-button" onclick="checkCode()">✓</button>
     </div>
+
+    <script>
+        function checkCode() {
+            const code = document.getElementById("codeInput").value.trim();
+
+            if (code.toUpperCase() === "DINOTOPIA") {
+                window.location.href = "dinotopia.html";
+            }
+        }
+    </script>
 
 </body>
 </html>
