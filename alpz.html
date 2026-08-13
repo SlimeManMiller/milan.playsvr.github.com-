@@ -43,6 +43,34 @@
             transform: translate(-50%, -50%);
         }
 
+        /* YouTube Button */
+        .youtube-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+
+            padding: 16px 35px;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            border-radius: 10px;
+
+            background: rgba(120, 120, 120, 0.45);
+            color: white;
+
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+        }
+
+        .youtube-button:hover {
+            background: rgba(150, 150, 150, 0.6);
+        }
+
+        /* Bottom */
         .bottom {
             height: 25vh;
             display: flex;
@@ -69,10 +97,22 @@
 
 <body>
 
+    <!-- Video -->
     <div class="video-section">
+
         <div id="player"></div>
+
+        <!-- YouTube Button -->
+        <a
+            class="youtube-button"
+            href="https://www.youtube.com/@Adrian.alpz1813"
+            target="_blank">
+            YOUTUBE
+        </a>
+
     </div>
 
+    <!-- Back -->
     <div class="bottom">
         <button
             class="back-button"
@@ -90,7 +130,6 @@
 
                 playerVars: {
                     autoplay: 1,
-                    mute: 1,
                     controls: 1,
                     loop: 1,
                     playlist: "PVy-bcTsO8A",
@@ -99,14 +138,16 @@
 
                 events: {
                     onReady: function(event) {
-                        event.target.mute();
+                        event.target.unMute();
+                        event.target.setVolume(20);
                         event.target.setPlaybackRate(2);
                         event.target.playVideo();
                     },
 
                     onStateChange: function(event) {
                         if (event.data === YT.PlayerState.PLAYING) {
-                            event.target.mute();
+                            event.target.unMute();
+                            event.target.setVolume(20);
                             event.target.setPlaybackRate(2);
                         }
                     }
