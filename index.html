@@ -36,6 +36,48 @@
             font-weight: 900;
             letter-spacing: 2px;
         }
+
+        /* Code Machine */
+        .code-machine {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .code-input {
+            width: 180px;
+            height: 42px;
+            padding: 0 12px;
+            border: 2px solid #315c43;
+            border-radius: 8px;
+            background: #102d1e;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .code-input::placeholder {
+            color: #8ca997;
+        }
+
+        .check-button {
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 8px;
+            background: #315c43;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .check-button:hover {
+            background: #407554;
+        }
     </style>
 </head>
 
@@ -43,6 +85,16 @@
 
     <div class="container">
         <h1>MILANPLAYSVR</h1>
+    </div>
+
+    <div class="code-machine">
+        <input
+            type="text"
+            class="code-input"
+            placeholder="code"
+        >
+
+        <button class="check-button">✓</button>
     </div>
 
 </body>
