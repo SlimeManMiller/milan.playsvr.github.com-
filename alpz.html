@@ -24,7 +24,6 @@
             overflow-y: auto;
         }
 
-        /* VIDEO */
         .video-section {
             position: relative;
             width: 100%;
@@ -33,7 +32,7 @@
             background: #000;
         }
 
-        .video-section iframe {
+        #player {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -42,11 +41,8 @@
             min-height: 100vh;
             min-width: 177.78vh;
             transform: translate(-50%, -50%);
-            border: none;
-            pointer-events: none;
         }
 
-        /* Aşağıdaki bölüm */
         .bottom {
             height: 25vh;
             display: flex;
@@ -69,7 +65,6 @@
             background: #407554;
         }
 
-        /* CODE MACHINE */
         .code-machine {
             position: fixed;
             right: 20px;
@@ -116,17 +111,10 @@
 
 <body>
 
-    <!-- YouTube Video -->
     <div class="video-section">
-        <iframe
-            src="https://www.youtube.com/embed/PVy-bcTsO8A?autoplay=1&loop=1&playlist=PVy-bcTsO8A&controls=1&rel=0"
-            title="ALPZ Video"
-            allow="autoplay; fullscreen"
-            allowfullscreen>
-        </iframe>
+        <div id="player"></div>
     </div>
 
-    <!-- Kaydırınca buraya gelinir -->
     <div class="bottom">
         <button
             class="back-button"
@@ -135,7 +123,6 @@
         </button>
     </div>
 
-    <!-- Code Machine -->
     <div class="code-machine">
         <input
             type="text"
@@ -152,6 +139,44 @@
     </div>
 
     <script>
+        let player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player("player", {
+                videoId: "PVy-bcTsO8A",
+
+                playerVars: {
+                    autoplay: 1,
+                    mute: 1,
+                    controls: 1,
+                    loop: 1,
+                    playlist: "PVy-bcTsO8A",
+                    rel: 0
+                },
+
+                events: {
+                    onReady: function(event) {
+                        event.target.mute();
+                        event.target.setPlaybackRate(2);
+                        event.target.playVideo();
+                    },
+
+                    onStateChange: function(event) {
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            event.target.mute();
+
+                            // YouTube API'nin izin verdiği en yüksek hız
+                            const speeds = event.target.getAvailablePlaybackRates();
+
+                            if (speeds.includes(2)) {
+                                event.target.setPlaybackRate(2);
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
         function checkCode() {
             const code = document
                 .getElementById("codeInput")
@@ -164,6 +189,8 @@
             }
         }
     </script>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
 
 </body>
 </html>
