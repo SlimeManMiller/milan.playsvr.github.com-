@@ -29,67 +29,26 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px 20px;
+            justify-content: center;
         }
 
-        .title {
-            margin: 0;
+        .upgrade-title {
             font-size: 38px;
             font-weight: 900;
+            letter-spacing: 2px;
             text-align: center;
-            letter-spacing: 1px;
         }
 
-        .quests {
-            width: 100%;
-            max-width: 700px;
-            margin-top: 55px;
-        }
-
-        .quest-section {
-            margin-bottom: 45px;
-        }
-
-        .section-title {
-            font-size: 30px;
-            font-weight: 900;
-            margin-bottom: 15px;
-        }
-
-        .quest {
-            background: rgba(0, 0, 0, 0.18);
-            border: 2px solid rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
-            padding: 15px 18px;
-            margin-bottom: 10px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
+        .upgrade-subtitle {
+            margin-top: 8px;
             font-size: 18px;
             font-weight: bold;
-            text-align: center;
-        }
-
-        .locked {
-            flex-direction: column;
-        }
-
-        .unlock-time {
-            margin-top: 6px;
-            font-size: 14px;
-            font-weight: normal;
             opacity: 0.8;
-        }
-
-        .check {
-            font-size: 28px;
-            font-weight: 900;
+            text-align: center;
         }
 
         .back-button {
-            margin-top: 20px;
+            margin-top: 40px;
             padding: 14px 35px;
             border: none;
             border-radius: 10px;
@@ -110,69 +69,12 @@
 
     <div class="main">
 
-        <h1 class="title">
-            TO UNLOCK YOUR ROOM "SLIME", YOU NEED TO COMPLETE ONE OF THESE QUESTS:
-        </h1>
+        <div class="upgrade-title">
+            UPGRADE NEEDED
+        </div>
 
-        <div class="quests">
-
-            <!-- 1/3 -->
-            <div class="quest-section">
-
-                <div class="section-title">1/3</div>
-
-                <div class="quest">
-                    <span class="check">✓</span>
-                </div>
-
-                <div class="quest">
-                    <span class="check">✓</span>
-                </div>
-
-                <div class="quest">
-                    <span class="check">✓</span>
-                </div>
-
-            </div>
-
-            <!-- 2/3 -->
-            <div class="quest-section">
-
-                <div class="section-title">2/3</div>
-
-                <div class="quest">
-                    <span class="check">✓</span>
-                </div>
-
-                <div class="quest">
-                    <span class="check">✓</span>
-                </div>
-
-                <div class="quest">
-                    <span class="check">✓</span>
-                </div>
-
-            </div>
-
-            <!-- 3/3 -->
-            <div class="quest-section">
-
-                <div class="section-title">3/3</div>
-
-                <div class="quest">
-                    <span class="check">✓</span>
-                </div>
-
-                <div class="quest">
-                    <span class="check">✓</span>
-                </div>
-
-                <div class="quest">
-                    HATCH 1 CHICKEN IN UG VR
-                </div>
-
-            </div>
-
+        <div class="upgrade-subtitle">
+            IN UPGRADE PAGE
         </div>
 
         <button
