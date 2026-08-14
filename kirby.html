@@ -24,7 +24,7 @@
             overflow-y: auto;
         }
 
-        /* Siyah ana alan */
+        /* Black area */
         .black-space {
             min-height: 100vh;
             background: #000;
@@ -35,7 +35,7 @@
             gap: 40px;
         }
 
-        /* KIRBY yazısı */
+        /* KIRBY title */
         .title {
             font-size: 70px;
             font-weight: 900;
@@ -43,15 +43,54 @@
             margin: 0;
         }
 
-        /* Alt mor alan */
+        /* Purple area */
         .purple-space {
             min-height: 35vh;
             background: #241035;
             display: flex;
-            justify-content: center;
             align-items: center;
+            position: relative;
         }
 
+        /* Chicken section */
+        .chicken-section {
+            position: absolute;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .chicken-label {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .chicken-count {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .chicken-button {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 10px;
+            background: #315c43;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .chicken-button:hover {
+            background: #407554;
+        }
+
+        /* Back button */
         .back-button {
             padding: 14px 35px;
             border: none;
@@ -71,7 +110,7 @@
 
 <body>
 
-    <!-- Siyah alan -->
+    <!-- Black area -->
     <div class="black-space">
 
         <h1 class="title">KIRBY</h1>
@@ -84,8 +123,45 @@
 
     </div>
 
-    <!-- Mor alan -->
-    <div class="purple-space"></div>
+    <!-- Purple area -->
+    <div class="purple-space">
+
+        <div class="chicken-section">
+
+            <div class="chicken-label">
+                CHICKEN:
+            </div>
+
+            <div class="chicken-count" id="chickenCount">
+                0
+            </div>
+
+            <button
+                class="chicken-button"
+                onclick="addChicken()">
+                CHICKEN
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Load the saved chicken count
+        let chicken = Number(localStorage.getItem("kirbyChicken")) || 0;
+
+        document.getElementById("chickenCount").textContent = chicken;
+
+        function addChicken() {
+            chicken++;
+
+            // Update the displayed count
+            document.getElementById("chickenCount").textContent = chicken;
+
+            // Save the count
+            localStorage.setItem("kirbyChicken", chicken);
+        }
+    </script>
 
 </body>
 </html>
