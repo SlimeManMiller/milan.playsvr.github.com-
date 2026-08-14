@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MILANPLAYSVR</title>
+    <title>HUB</title>
 
     <style>
         * {
@@ -12,99 +12,117 @@
         }
 
         html {
-            min-height: 110%;
+            min-height: 135%;
         }
 
         body {
             margin: 0;
-            min-height: 110vh;
-            background: #0b2418;
+            min-height: 135vh;
+            background: #123d2a;
             color: white;
             font-family: Arial, sans-serif;
             overflow-y: auto;
         }
 
-        .container {
-            min-height: 115vh;
-            padding-top: 70px;
-            text-align: center;
+        .main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
         }
 
         h1 {
             margin: 0;
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
-        /* CODE MACHINE */
+        .space {
+            height: 65vh;
+        }
+
+        /* Code Machine */
         .code-machine {
             position: fixed;
-            right: 20px;
-            bottom: 20px;
+            right: 25px;
+            bottom: 25px;
+
             display: flex;
             align-items: center;
             gap: 8px;
+
             z-index: 10;
         }
 
-        .code-input {
-            width: 180px;
-            height: 42px;
-            padding: 0 12px;
-            border: 2px solid #315c43;
+        .code-machine input {
+            width: 190px;
+            padding: 12px 14px;
+
+            border: 2px solid rgba(255, 255, 255, 0.25);
             border-radius: 8px;
-            background: #102d1e;
+
+            background: rgba(0, 0, 0, 0.35);
             color: white;
+
             font-size: 15px;
             outline: none;
         }
 
-        .code-input::placeholder {
-            color: #8ca997;
+        .code-machine input::placeholder {
+            color: rgba(255, 255, 255, 0.65);
         }
 
-        .check-button {
-            width: 42px;
-            height: 42px;
-            border: none;
+        .code-machine button {
+            width: 44px;
+            height: 44px;
+
+            border: 2px solid rgba(255, 255, 255, 0.25);
             border-radius: 8px;
-            background: #315c43;
+
+            background: rgba(160, 160, 160, 0.45);
             color: white;
+
             font-size: 22px;
             font-weight: bold;
+
             cursor: pointer;
         }
 
-        .check-button:hover {
-            background: #407554;
+        .code-machine button:hover {
+            background: rgba(190, 190, 190, 0.6);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>MILANPLAYSVR</h1>
+    <div class="main">
+
+        <h1>HUB</h1>
+
+        <div class="space"></div>
+
     </div>
 
+    <!-- Code Machine -->
     <div class="code-machine">
+
         <input
             type="text"
             id="codeInput"
-            class="code-input"
-            placeholder="Code Machine"
+            placeholder="CODE MACHINE"
+            autocomplete="off"
         >
 
-        <button
-            class="check-button"
-            onclick="checkCode()">
-            ✓
-        </button>
+        <button onclick="checkCode()">✓</button>
+
     </div>
 
     <script>
         function checkCode() {
+
             const code = document
                 .getElementById("codeInput")
                 .value
@@ -115,10 +133,25 @@
                 window.location.href = "dinotopia.html";
             }
 
-            if (code === "ALPZ") {
+            else if (code === "ALPZ") {
                 window.location.href = "alpz.html";
             }
+
+            else if (code === "KIRBY") {
+                window.location.href = "kirby.html";
+            }
         }
+
+        /* Enter'a basınca da çalışsın */
+        document
+            .getElementById("codeInput")
+            .addEventListener("keydown", function(event) {
+
+                if (event.key === "Enter") {
+                    checkCode();
+                }
+
+            });
     </script>
 
 </body>
