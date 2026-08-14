@@ -12,12 +12,12 @@
         }
 
         html {
-            min-height: 145%;
+            min-height: 130%;
         }
 
         body {
             margin: 0;
-            min-height: 145vh;
+            min-height: 130vh;
             background: #35104f;
             color: white;
             font-family: Arial, sans-serif;
@@ -54,14 +54,11 @@
             padding: 16px 35px;
             border: 2px solid rgba(255, 255, 255, 0.35);
             border-radius: 10px;
-
             background: rgba(120, 120, 120, 0.45);
             color: white;
-
             font-size: 18px;
             font-weight: bold;
             text-decoration: none;
-
             backdrop-filter: blur(4px);
             cursor: pointer;
         }
@@ -70,25 +67,55 @@
             background: rgba(150, 150, 150, 0.6);
         }
 
-        /* Alt bölüm */
-        .bottom {
-            min-height: 45vh;
+        /* Küçük siyah alan */
+        .chicken-area {
+            min-height: 28vh;
+            background: #000;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 18px;
+            gap: 12px;
+        }
+
+        /* Küçük bacak */
+        .leg {
+            position: relative;
+            width: 45px;
+            height: 65px;
+        }
+
+        .leg::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: 0;
+            width: 8px;
+            height: 45px;
+            background: #d99a32;
+            border-radius: 5px;
+        }
+
+        .leg::after {
+            content: "";
+            position: absolute;
+            left: 8px;
+            bottom: 8px;
+            width: 30px;
+            height: 8px;
+            background: #d99a32;
+            border-radius: 8px;
         }
 
         .chicken {
             margin: 0;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 900;
             letter-spacing: 2px;
         }
 
         .egg-button {
-            padding: 14px 40px;
+            padding: 12px 38px;
             border: 2px solid rgba(255, 255, 255, 0.25);
             border-radius: 10px;
             background: rgba(160, 160, 160, 0.45);
@@ -101,6 +128,15 @@
 
         .egg-button:hover {
             background: rgba(180, 180, 180, 0.6);
+        }
+
+        /* Mor alan */
+        .purple-space {
+            min-height: 18vh;
+            background: #35104f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .back-button {
@@ -122,12 +158,10 @@
 
 <body>
 
-    <!-- Video -->
     <div class="video-section">
 
         <div id="player"></div>
 
-        <!-- YouTube -->
         <a
             class="youtube-button"
             href="https://www.youtube.com/@Adrian.alpz1813"
@@ -137,8 +171,10 @@
 
     </div>
 
-    <!-- Alt bölüm -->
-    <div class="bottom">
+    <!-- Siyah Chicken alanı -->
+    <div class="chicken-area">
+
+        <div class="leg"></div>
 
         <h2 class="chicken">
             CHICKEN: <span id="chickenCount">0</span>
@@ -150,6 +186,11 @@
             EGG
         </button>
 
+    </div>
+
+    <!-- Küçük mor alan + BACK -->
+    <div class="purple-space">
+
         <button
             class="back-button"
             onclick="window.location.href='index.html'">
@@ -159,22 +200,22 @@
     </div>
 
     <script>
-        /* Chicken sayısını kaydetme */
-        let chickenCount = Number(localStorage.getItem("chickenCount")) || 0;
+        let chickenCount =
+            Number(localStorage.getItem("chickenCount")) || 0;
 
         document.getElementById("chickenCount").textContent = chickenCount;
 
         function addChicken() {
             chickenCount++;
 
-            document.getElementById("chickenCount").textContent = chickenCount;
+            document.getElementById("chickenCount").textContent =
+                chickenCount;
 
             localStorage.setItem("chickenCount", chickenCount);
         }
     </script>
 
     <script>
-        /* YouTube Player */
         let player;
 
         function onYouTubeIframeAPIReady() {
