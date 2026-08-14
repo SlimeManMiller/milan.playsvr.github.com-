@@ -12,12 +12,12 @@
         }
 
         html {
-            min-height: 130%;
+            min-height: 135%;
         }
 
         body {
             margin: 0;
-            min-height: 130vh;
+            min-height: 135vh;
             background: #35104f;
             color: white;
             font-family: Arial, sans-serif;
@@ -67,22 +67,36 @@
             background: rgba(150, 150, 150, 0.6);
         }
 
-        /* Chicken alanı */
+        /* Siyah üst alan */
+        .black-space {
+            min-height: 18vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .chicken-area {
-            min-height: 28vh;
-            background: #35104f;
+            min-height: 35vh;
+            background: #000;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
-        .chicken {
+        .chicken-title {
             margin: 0;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 900;
             letter-spacing: 2px;
+        }
+
+        .chicken-count {
+            margin: 0;
+            font-size: 34px;
+            font-weight: 900;
         }
 
         .egg-button {
@@ -101,10 +115,10 @@
             background: rgba(180, 180, 180, 0.6);
         }
 
-        /* Siyah alan */
-        .black-space {
-            min-height: 18vh;
-            background: #000;
+        /* Mor alt alan */
+        .purple-space {
+            min-height: 22vh;
+            background: #35104f;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -134,7 +148,6 @@
 
         <div id="player"></div>
 
-        <!-- YouTube -->
         <a
             class="youtube-button"
             href="https://www.youtube.com/@Adrian.alpz1813"
@@ -144,12 +157,19 @@
 
     </div>
 
+    <!-- Siyah alan -->
+    <div class="black-space"></div>
+
     <!-- Chicken -->
     <div class="chicken-area">
 
-        <h2 class="chicken">
-            CHICKEN: <span id="chickenCount">0</span>
+        <h2 class="chicken-title">
+            CHICKEN:
         </h2>
+
+        <div class="chicken-count" id="chickenCount">
+            0
+        </div>
 
         <button
             class="egg-button"
@@ -159,8 +179,8 @@
 
     </div>
 
-    <!-- Siyah alan + BACK -->
-    <div class="black-space">
+    <!-- Mor alan + BACK -->
+    <div class="purple-space">
 
         <button
             class="back-button"
