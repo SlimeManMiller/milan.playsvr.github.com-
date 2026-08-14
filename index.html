@@ -43,10 +43,9 @@
             height: 65vh;
         }
 
-        /* Code Machine */
-        .code-machine {
+        /* Shared Code Box */
+        .code-box {
             position: fixed;
-            right: 25px;
             bottom: 25px;
 
             display: flex;
@@ -56,7 +55,17 @@
             z-index: 10;
         }
 
-        .code-machine input {
+        /* Room Code - Bottom Left */
+        .room-code {
+            left: 25px;
+        }
+
+        /* Code Machine - Bottom Right */
+        .code-machine {
+            right: 25px;
+        }
+
+        .code-box input {
             width: 190px;
             padding: 12px 14px;
 
@@ -70,11 +79,11 @@
             outline: none;
         }
 
-        .code-machine input::placeholder {
+        .code-box input::placeholder {
             color: rgba(255, 255, 255, 0.65);
         }
 
-        .code-machine button {
+        .code-box button {
             width: 44px;
             height: 44px;
 
@@ -90,7 +99,7 @@
             cursor: pointer;
         }
 
-        .code-machine button:hover {
+        .code-box button:hover {
             background: rgba(190, 190, 190, 0.6);
         }
     </style>
@@ -106,25 +115,39 @@
 
     </div>
 
-    <!-- Code Machine -->
-    <div class="code-machine">
+    <!-- Room Code -->
+    <div class="code-box room-code">
 
         <input
             type="text"
-            id="codeInput"
+            id="roomCodeInput"
+            placeholder="ROOM CODE"
+            autocomplete="off"
+        >
+
+        <button onclick="checkRoomCode()">✓</button>
+
+    </div>
+
+    <!-- Code Machine -->
+    <div class="code-box code-machine">
+
+        <input
+            type="text"
             placeholder="CODE MACHINE"
             autocomplete="off"
         >
 
-        <button onclick="checkCode()">✓</button>
+        <button>✓</button>
 
     </div>
 
     <script>
-        function checkCode() {
+
+        function checkRoomCode() {
 
             const code = document
-                .getElementById("codeInput")
+                .getElementById("roomCodeInput")
                 .value
                 .trim()
                 .toUpperCase();
@@ -150,16 +173,17 @@
             }
         }
 
-        /* Enter key support */
+        /* Enter key works only for Room Code */
         document
-            .getElementById("codeInput")
+            .getElementById("roomCodeInput")
             .addEventListener("keydown", function(event) {
 
                 if (event.key === "Enter") {
-                    checkCode();
+                    checkRoomCode();
                 }
 
             });
+
     </script>
 
 </body>
