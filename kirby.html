@@ -24,26 +24,26 @@
             overflow-y: auto;
         }
 
-        /*  */
-        .image-section {
-            width: 100%;
-            height: 100vh;
-            background-image: url("kirby.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        /*  */
+        /* Siyah ana alan */
         .black-space {
-            min-height: 22vh;
+            min-height: 100vh;
             background: #000;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 40px;
         }
 
-        /*  */
+        /* KIRBY yazısı */
+        .title {
+            font-size: 70px;
+            font-weight: 900;
+            letter-spacing: 6px;
+            margin: 0;
+        }
+
+        /* Alt mor alan */
         .purple-space {
             min-height: 35vh;
             background: #241035;
@@ -71,14 +71,10 @@
 
 <body>
 
-    <!--  -->
-    <div class="image-section"></div>
+    <!-- Siyah alan -->
+    <div class="black-space">
 
-    <!--  -->
-    <div class="black-space"></div>
-
-    <!--  -->
-    <div class="purple-space">
+        <h1 class="title">KIRBY</h1>
 
         <button
             class="back-button"
@@ -87,6 +83,9 @@
         </button>
 
     </div>
+
+    <!-- Mor alan -->
+    <div class="purple-space"></div>
 
 </body>
 </html>
