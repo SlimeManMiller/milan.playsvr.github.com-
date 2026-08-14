@@ -67,44 +67,15 @@
             background: rgba(150, 150, 150, 0.6);
         }
 
-        /* Siyah Chicken alanı */
+        /* Chicken alanı */
         .chicken-area {
             min-height: 28vh;
-            background: #000;
+            background: #35104f;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 12px;
-        }
-
-        /* Küçük bacak */
-        .leg {
-            position: relative;
-            width: 45px;
-            height: 65px;
-        }
-
-        .leg::before {
-            content: "";
-            position: absolute;
-            left: 18px;
-            top: 0;
-            width: 8px;
-            height: 45px;
-            background: #d99a32;
-            border-radius: 5px;
-        }
-
-        .leg::after {
-            content: "";
-            position: absolute;
-            left: 8px;
-            bottom: 8px;
-            width: 30px;
-            height: 8px;
-            background: #d99a32;
-            border-radius: 8px;
         }
 
         .chicken {
@@ -130,10 +101,10 @@
             background: rgba(180, 180, 180, 0.6);
         }
 
-        /* Mor alan */
-        .purple-space {
+        /* Siyah alan */
+        .black-space {
             min-height: 18vh;
-            background: #35104f;
+            background: #000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -173,10 +144,8 @@
 
     </div>
 
-    <!-- Chicken Alanı -->
+    <!-- Chicken -->
     <div class="chicken-area">
-
-        <div class="leg"></div>
 
         <h2 class="chicken">
             CHICKEN: <span id="chickenCount">0</span>
@@ -190,8 +159,8 @@
 
     </div>
 
-    <!-- Mor alan + BACK -->
-    <div class="purple-space">
+    <!-- Siyah alan + BACK -->
+    <div class="black-space">
 
         <button
             class="back-button"
@@ -202,7 +171,6 @@
     </div>
 
     <script>
-        /* Chicken sayısını kaydet */
         let chickenCount =
             Number(localStorage.getItem("chickenCount")) || 0;
 
@@ -223,7 +191,6 @@
     </script>
 
     <script>
-        /* YouTube Player */
         let player;
 
         function onYouTubeIframeAPIReady() {
