@@ -43,6 +43,7 @@
             height: 65vh;
         }
 
+        /* Code Boxes */
         .code-box {
             position: fixed;
             bottom: 25px;
@@ -133,12 +134,11 @@
 
         <input
             type="text"
-            id="machineCodeInput"
             placeholder="CODE MACHINE"
             autocomplete="off"
         >
 
-        <button onclick="checkMachineCode()">✓</button>
+        <button type="button">✓</button>
 
     </div>
 
@@ -173,37 +173,13 @@
             }
         }
 
-        function checkMachineCode() {
-
-            const code = document
-                .getElementById("machineCodeInput")
-                .value
-                .trim()
-                .toUpperCase();
-
-            if (code === "SLIME") {
-                window.location.href = "slime.html";
-            }
-        }
-
-        /* Enter key for Room Code */
+        /* Enter key works only for Room Code */
         document
             .getElementById("roomCodeInput")
             .addEventListener("keydown", function(event) {
 
                 if (event.key === "Enter") {
                     checkRoomCode();
-                }
-
-            });
-
-        /* Enter key for Code Machine */
-        document
-            .getElementById("machineCodeInput")
-            .addEventListener("keydown", function(event) {
-
-                if (event.key === "Enter") {
-                    checkMachineCode();
                 }
 
             });
