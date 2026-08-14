@@ -66,7 +66,31 @@
             background: rgba(150, 150, 150, 0.6);
         }
 
-        /* Mor CHICKEN alanı */
+        /* Siyah BACK alanı - ÜST */
+        .black-space {
+            min-height: 22vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back-button {
+            padding: 14px 35px;
+            border: none;
+            border-radius: 10px;
+            background: #315c43;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: #407554;
+        }
+
+        /* Mor CHICKEN alanı - ALT */
         .chicken-area {
             min-height: 35vh;
             background: #35104f;
@@ -105,36 +129,12 @@
         .egg-button:hover {
             background: rgba(180, 180, 180, 0.6);
         }
-
-        /* Siyah BACK alanı */
-        .black-space {
-            min-height: 22vh;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .back-button {
-            padding: 14px 35px;
-            border: none;
-            border-radius: 10px;
-            background: #315c43;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .back-button:hover {
-            background: #407554;
-        }
     </style>
 </head>
 
 <body>
 
-    <!-- Video -->
+    <!-- VIDEO -->
     <div class="video-section">
 
         <div id="player"></div>
@@ -148,14 +148,27 @@
 
     </div>
 
-    <!-- Mor Chicken alanı -->
+    <!-- SIYAH + BACK -->
+    <div class="black-space">
+
+        <button
+            class="back-button"
+            onclick="window.location.href='index.html'">
+            BACK
+        </button>
+
+    </div>
+
+    <!-- MOR + CHICKEN -->
     <div class="chicken-area">
 
         <h2 class="chicken-title">
             CHICKEN:
         </h2>
 
-        <div class="chicken-count" id="chickenCount">
+        <div
+            class="chicken-count"
+            id="chickenCount">
             0
         </div>
 
@@ -163,17 +176,6 @@
             class="egg-button"
             onclick="addChicken()">
             EGG
-        </button>
-
-    </div>
-
-    <!-- Siyah BACK alanı -->
-    <div class="black-space">
-
-        <button
-            class="back-button"
-            onclick="window.location.href='index.html'">
-            BACK
         </button>
 
     </div>
@@ -198,6 +200,7 @@
         }
     </script>
 
+    <!-- YOUTUBE API -->
     <script>
         let player;
 
