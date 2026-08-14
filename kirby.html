@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KIRBY</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 135%;
+        }
+
+        body {
+            margin: 0;
+            min-height: 135vh;
+            background: #241035;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow-y: auto;
+        }
+
+        /* Görsel alanı */
+        .image-section {
+            width: 100%;
+            height: 100vh;
+            background-image: url("kirby.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Siyah alan */
+        .black-space {
+            min-height: 22vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Daha koyu mor alan */
+        .purple-space {
+            min-height: 35vh;
+            background: #241035;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back-button {
+            padding: 14px 35px;
+            border: none;
+            border-radius: 10px;
+            background: #315c43;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: #407554;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- KIRBY görseli -->
+    <div class="image-section"></div>
+
+    <!-- Siyah alan -->
+    <div class="black-space"></div>
+
+    <!-- Koyu mor alan + BACK -->
+    <div class="purple-space">
+
+        <button
+            class="back-button"
+            onclick="window.location.href='index.html'">
+            BACK
+        </button>
+
+    </div>
+
+</body>
+</html>
