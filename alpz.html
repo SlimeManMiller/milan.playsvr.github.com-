@@ -12,13 +12,13 @@
         }
 
         html {
-            min-height: 120%;
+            min-height: 145%;
         }
 
         body {
             margin: 0;
-            min-height: 120vh;
-            background: #000;
+            min-height: 145vh;
+            background: #35104f;
             color: white;
             font-family: Arial, sans-serif;
             overflow-y: auto;
@@ -70,12 +70,37 @@
             background: rgba(150, 150, 150, 0.6);
         }
 
-        /* Bottom */
+        /* Alt bölüm */
         .bottom {
-            height: 25vh;
+            min-height: 45vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 18px;
+        }
+
+        .chicken {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .egg-button {
+            padding: 14px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+            background: rgba(160, 160, 160, 0.45);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+
+        .egg-button:hover {
+            background: rgba(180, 180, 180, 0.6);
         }
 
         .back-button {
@@ -97,11 +122,12 @@
 
 <body>
 
+    <!-- Video -->
     <div class="video-section">
 
         <div id="player"></div>
 
-        <!-- YouTube Button -->
+        <!-- YouTube -->
         <a
             class="youtube-button"
             href="https://www.youtube.com/@Adrian.alpz1813"
@@ -111,15 +137,44 @@
 
     </div>
 
+    <!-- Alt bölüm -->
     <div class="bottom">
+
+        <h2 class="chicken">
+            CHICKEN: <span id="chickenCount">0</span>
+        </h2>
+
+        <button
+            class="egg-button"
+            onclick="addChicken()">
+            EGG
+        </button>
+
         <button
             class="back-button"
             onclick="window.location.href='index.html'">
             BACK
         </button>
+
     </div>
 
     <script>
+        /* Chicken sayısını kaydetme */
+        let chickenCount = Number(localStorage.getItem("chickenCount")) || 0;
+
+        document.getElementById("chickenCount").textContent = chickenCount;
+
+        function addChicken() {
+            chickenCount++;
+
+            document.getElementById("chickenCount").textContent = chickenCount;
+
+            localStorage.setItem("chickenCount", chickenCount);
+        }
+    </script>
+
+    <script>
+        /* YouTube Player */
         let player;
 
         function onYouTubeIframeAPIReady() {
@@ -137,7 +192,7 @@
                 events: {
                     onReady: function(event) {
                         event.target.unMute();
-                        event.target.setVolume(20);
+                        event.target.setVolume(5);
                         event.target.setPlaybackRate(2);
                         event.target.playVideo();
                     },
@@ -145,7 +200,7 @@
                     onStateChange: function(event) {
                         if (event.data === YT.PlayerState.PLAYING) {
                             event.target.unMute();
-                            event.target.setVolume(20);
+                            event.target.setVolume(5);
                             event.target.setPlaybackRate(2);
                         }
                     }
