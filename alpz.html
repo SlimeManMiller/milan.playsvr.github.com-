@@ -67,7 +67,7 @@
             background: rgba(150, 150, 150, 0.6);
         }
 
-        /* Küçük siyah alan */
+        /* Siyah Chicken alanı */
         .chicken-area {
             min-height: 28vh;
             background: #000;
@@ -158,10 +158,12 @@
 
 <body>
 
+    <!-- Video -->
     <div class="video-section">
 
         <div id="player"></div>
 
+        <!-- YouTube -->
         <a
             class="youtube-button"
             href="https://www.youtube.com/@Adrian.alpz1813"
@@ -171,7 +173,7 @@
 
     </div>
 
-    <!-- Siyah Chicken alanı -->
+    <!-- Chicken Alanı -->
     <div class="chicken-area">
 
         <div class="leg"></div>
@@ -188,7 +190,7 @@
 
     </div>
 
-    <!-- Küçük mor alan + BACK -->
+    <!-- Mor alan + BACK -->
     <div class="purple-space">
 
         <button
@@ -200,10 +202,12 @@
     </div>
 
     <script>
+        /* Chicken sayısını kaydet */
         let chickenCount =
             Number(localStorage.getItem("chickenCount")) || 0;
 
-        document.getElementById("chickenCount").textContent = chickenCount;
+        document.getElementById("chickenCount").textContent =
+            chickenCount;
 
         function addChicken() {
             chickenCount++;
@@ -211,11 +215,15 @@
             document.getElementById("chickenCount").textContent =
                 chickenCount;
 
-            localStorage.setItem("chickenCount", chickenCount);
+            localStorage.setItem(
+                "chickenCount",
+                chickenCount
+            );
         }
     </script>
 
     <script>
+        /* YouTube Player */
         let player;
 
         function onYouTubeIframeAPIReady() {
@@ -233,7 +241,7 @@
                 events: {
                     onReady: function(event) {
                         event.target.unMute();
-                        event.target.setVolume(5);
+                        event.target.setVolume(10);
                         event.target.setPlaybackRate(2);
                         event.target.playVideo();
                     },
@@ -241,7 +249,7 @@
                     onStateChange: function(event) {
                         if (event.data === YT.PlayerState.PLAYING) {
                             event.target.unMute();
-                            event.target.setVolume(5);
+                            event.target.setVolume(10);
                             event.target.setPlaybackRate(2);
                         }
                     }
