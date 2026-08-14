@@ -11,42 +11,41 @@
             box-sizing: border-box;
         }
 
-        html {
-            min-height: 135%;
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 135vh;
         }
 
         body {
-            margin: 0;
-            min-height: 135vh;
-
             color: white;
             font-family: Arial, sans-serif;
+            overflow-y: auto;
 
             background: linear-gradient(
                 to bottom,
-                #000000 0%,
-                #000000 8%,
+                #000000 0vh,
+                #000000 10vh,
 
-                #6e256f 8%,
-                #6e256f 31%,
+                #6e256f 10vh,
+                #6e256f 45vh,
 
-                #0ed145 31%,
-                #0ed145 54%,
+                #0ed145 45vh,
+                #0ed145 80vh,
 
-                #8700ff 54%,
-                #8700ff 77%,
+                #8700ff 80vh,
+                #8700ff 115vh,
 
-                #381556 77%,
-                #381556 100%
+                #381556 115vh,
+                #381556 135vh
             );
-
-            overflow-y: auto;
         }
 
         .upgrade-title {
             position: absolute;
             top: 25px;
-            left: 30px;
+            left: 25px;
 
             margin: 0;
 
@@ -59,6 +58,7 @@
             position: absolute;
             top: 25px;
             left: 50%;
+
             transform: translateX(-50%);
 
             padding: 12px 30px;
