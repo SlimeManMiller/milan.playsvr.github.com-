@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SLIME</title>
+    <title>SLIMEMANMILLERVR</title>
 
     <style>
         * {
@@ -26,41 +26,83 @@
 
         .main {
             min-height: 100vh;
+            position: relative;
+            padding-top: 40px;
+        }
+
+        /* Title */
+        .title {
+            margin: 0;
+            text-align: center;
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        /* Slime counter */
+        .slime-area {
+            position: absolute;
+            top: 42%;
+            right: 12%;
+            transform: translateY(-50%);
+
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            gap: 14px;
         }
 
-        .upgrade-title {
-            font-size: 38px;
+        .slime-count {
+            font-size: 32px;
             font-weight: 900;
-            letter-spacing: 2px;
-            text-align: center;
         }
 
-        .upgrade-subtitle {
-            margin-top: 8px;
+        .create-button {
+            padding: 12px 38px;
+
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+
+            background: rgba(160, 160, 160, 0.45);
+            color: white;
+
             font-size: 18px;
             font-weight: bold;
-            opacity: 0.8;
-            text-align: center;
+
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+
+        .create-button:hover {
+            background: rgba(180, 180, 180, 0.6);
+        }
+
+        /* Bottom area */
+        .bottom-space {
+            min-height: 35vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 50px;
         }
 
         .back-button {
-            margin-top: 40px;
             padding: 14px 35px;
+
             border: none;
             border-radius: 10px;
-            background: rgba(80, 80, 80, 0.65);
+
+            background: #315c43;
             color: white;
+
             font-size: 18px;
             font-weight: bold;
+
             cursor: pointer;
         }
 
         .back-button:hover {
-            background: rgba(100, 100, 100, 0.8);
+            background: #407554;
         }
     </style>
 </head>
@@ -69,13 +111,30 @@
 
     <div class="main">
 
-        <div class="upgrade-title">
-            UPGRADE NEEDED
+        <!-- TITLE -->
+        <h1 class="title">
+            SLIMEMANMILLERVR
+        </h1>
+
+        <!-- SLIME COUNTER -->
+        <div class="slime-area">
+
+            <div class="slime-count" id="slimeCount">
+                SLIMES: 0
+            </div>
+
+            <button
+                class="create-button"
+                onclick="createSlime()">
+                CREATE
+            </button>
+
         </div>
 
-        <div class="upgrade-subtitle">
-            IN UPGRADE PAGE
-        </div>
+    </div>
+
+    <!-- LOWER BACK AREA -->
+    <div class="bottom-space">
 
         <button
             class="back-button"
@@ -84,6 +143,26 @@
         </button>
 
     </div>
+
+    <script>
+        let slimeCount =
+            Number(localStorage.getItem("slimeCount")) || 0;
+
+        document.getElementById("slimeCount").textContent =
+            "SLIMES: " + slimeCount;
+
+        function createSlime() {
+            slimeCount++;
+
+            document.getElementById("slimeCount").textContent =
+                "SLIMES: " + slimeCount;
+
+            localStorage.setItem(
+                "slimeCount",
+                slimeCount
+            );
+        }
+    </script>
 
 </body>
 </html>
